@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f3ed">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Tabiori AI">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Tabiori AI</title>
+<style>
+:root{--bg:#f7f3ed;--card:#fff;--ink:#222;--muted:#777;--line:#e9e2d8;--accent:#6b5b95;--accent2:#9a7fc0;--good:#4f8064;--warn:#a46d38;--shadow:0 10px 30px #34291a12}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}button,input,textarea{font:inherit}button{border:0}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:40px}.hero{padding:34px 20px 18px;background:linear-gradient(180deg,#eee8f5 0,#f7f3ed 100%)}.brand{font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--accent)}h1{font-size:32px;line-height:1.2;margin:10px 0 8px}.lead{color:#665f58;line-height:1.7;margin:0}.panel{margin:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.panel-inner{padding:18px}.label{font-size:13px;font-weight:700;margin-bottom:8px}.example{background:#faf8f4;border-radius:14px;padding:12px;color:#5f5952;font-size:13px;line-height:1.65;margin-bottom:12px}.input{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line);border-radius:16px;padding:14px;outline:none;background:#fff}.input:focus{border-color:var(--accent)}.primary{width:100%;margin-top:12px;padding:15px;border-radius:15px;background:var(--accent);color:white;font-weight:700;box-shadow:0 7px 18px #6b5b9530}.primary:disabled{opacity:.55}.secondary{padding:10px 13px;border-radius:12px;background:#f2eee8;color:#514a43;font-weight:700}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:#fff;color:#666}.status{padding:12px 16px;font-size:13px;color:var(--muted);display:none}.result{display:none}.summary{padding:18px;background:linear-gradient(135deg,#f1edf7,#fbf8f2)}.summary h2{margin:0 0 5px;font-size:22px}.meta{color:#6c655d;font-size:13px}.day{padding:18px;border-top:1px solid var(--line)}.day-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.day-title{font-size:20px;font-weight:800}.day-sub{font-size:12px;color:var(--muted)}.timeline{position:relative;margin-left:6px}.item{display:grid;grid-template-columns:58px 1fr;gap:10px;position:relative;padding:0 0 16px}.time{font-weight:800;font-size:13px;color:var(--accent);padding-top:2px}.event{border-left:2px solid #ddd4c8;padding-left:14px}.event-title{font-weight:800}.event-desc{font-size:12px;color:#706960;line-height:1.6;margin-top:4px}.tag{display:inline-block;font-size:10px;padding:3px 7px;border-radius:999px;margin-top:7px;margin-right:4px}.verified{background:#e8f1eb;color:var(--good)}.estimated{background:#f5ecdf;color:var(--warn)}.unavailable{background:#eee;color:#777}.why{margin-top:8px;padding:10px 12px;border-radius:12px;background:#faf8f4;font-size:12px;line-height:1.6;color:#655f58}.actions{display:flex;gap:8px;padding:14px 18px 18px}.actions button{flex:1}.notice{margin:16px;padding:13px;border-radius:14px;background:#fff8e9;color:#795b35;font-size:12px;line-height:1.6}.saved{padding:18px}.saved-item{padding:13px 0;border-bottom:1px solid var(--line)}.saved-item:last-child{border:0}.empty{color:var(--muted);font-size:13px}.tabs{position:sticky;bottom:0;background:#ffffffef;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;padding:8px 10px calc(8px + env(safe-area-inset-bottom));z-index:5}.tab{flex:1;background:none;color:#777;padding:8px;font-size:12px}.tab.active{color:var(--accent);font-weight:800}.hidden{display:none!important}.loading{display:inline-flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:b 1s infinite alternate}@keyframes b{to{opacity:.25;transform:translateY(-3px)}}@media(min-width:700px){.app{padding-bottom:20px}.tabs{display:none}.hero{border-radius:0 0 24px 24px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+<div class="brand">TABIORI AI</div>
+<h1>ざっくり入力、<br>旅程はAIにおまかせ。</h1>
+<p class="lead">行きたい場所と希望を自由に書くだけ。日程・移動・営業時間を考えて、旅のしおりにまとめます。</p>
+</header>
+<main>
+<section id="create" class="panel">
+<div class="panel-inner">
+<div class="label">旅の希望をそのまま書いてください</div>
+<div class="example">例：11月に京都2泊3日。嵐山と祇園に行きたい。朝はゆっくり。東京から新幹線で11時ごろ着。最終日は16時ごろ出発。</div>
+<textarea id="prompt" class="input">11月に京都2泊3日。嵐山と祇園に行きたい。朝はゆっくり。東京から新幹線で11時ごろ着。最終日は16時ごろ出発。</textarea>
+<div class="chips"><span class="chip">朝はゆっくり</span><span class="chip">歩くの少なめ</span><span class="chip">乗換少なめ</span></div>
+<button id="make" class="primary">✨ 最適プランを作る</button>
+<div id="status" class="status"></div>
+</div>
+</section>
+<section id="result" class="panel result"></section>
+<section id="saved" class="panel hidden"><div class="saved"><h3>保存した旅</h3><div id="savedList"></div></div></section>
+</main>
+<nav class="tabs"><button class="tab active" data-tab="create">旅を作る</button><button class="tab" data-tab="result">しおり</button><button class="tab" data-tab="saved">保存</button></nav>
+</div>
+<script>
+const $=id=>document.getElementById(id); const KEY='tabiori_ai_saved_v1';
+const defaultPlaces={
+京都:[['嵐山・渡月橋','10:00','11:30','景色と散策','目安'],['天龍寺','11:45','12:45','庭園をゆっくり鑑賞','目安'],['湯葉・だし系ランチ','13:00','14:00','昼食','目安'],['祇園・花見小路','15:00','16:15','街歩き','目安'],['八坂神社','16:25','17:10','参拝','目安'],['先斗町','18:00','19:30','夕食・夜の京都','目安']],
+沖縄:[['国際通り','10:30','12:00','散策・買い物','目安'],['沖縄そばランチ','12:15','13:15','昼食','目安'],['美ら海水族館','14:30','17:00','観光','目安'],['瀬長島','18:00','19:00','夕景','目安']],
+大阪:[['道頓堀','10:30','12:00','散策','目安'],['大阪グルメ','12:00','13:00','昼食','目安'],['大阪城','14:00','16:00','観光','目安'],['梅田','17:00','19:00','夕食・夜景','目安']],
+東京:[['浅草・雷門','10:00','11:30','散策','目安'],['浅草ランチ','11:45','12:45','昼食','目安'],['上野・アメ横','13:30','15:00','散策','目安'],['東京駅・丸の内','16:00','18:00','街歩き','目安']]
+};
+function parse(text){let dest='京都',m=text.match(/(京都|沖縄|大阪|東京|福岡|札幌|奈良|金沢|横浜)/);if(m)dest=m[1];let dur=3,n=text.match(/(\d+)泊(\d+)日/);if(n)dur=+n[2];else{n=text.match(/(\d+)泊/);if(n)dur=+n[1]+1}let month=(text.match(/(\d{1,2})月/)||[])[1]||'';let out=(text.match(/(\d{1,2})時ごろ(?:着|到着)/)||[])[1]||'';let ret=(text.match(/(\d{1,2})時ごろ(?:出発|発)/)||[])[1]||'';let origin=(text.match(/([^。]+?)から(?:新幹線|電車|飛行機)/)||[])[1]||'東京';let slow=/朝はゆっくり|ゆっくり/.test(text);let walk=/歩くの少なめ|歩きたくない/.test(text);let transfer=/乗換少なめ|乗り換え少なめ/.test(text);return{dest,dur,month,out,ret,origin,slow,walk,transfer,text}}
+function addMinutes(t,mins){let [h,m]=t.split(':').map(Number),x=h*60+m+mins;return String(Math.floor(x/60)%24).padStart(2,'0')+':'+String(x%60).padStart(2,'0')}
+function transport(a,b,mins=30,status='目安'){return {time:'',title:`移動：${a} → ${b}`,desc:`所要時間 約${mins}分。乗換・道路状況などで変動します。`,status}}
+function generate(p){let base=defaultPlaces[p.dest]||defaultPlaces.京都;let days=[];for(let d=1;d<=p.dur;d++){let items=[];if(d===1){items.push({time:p.out?addMinutes(`${p.out}:00`,0):'11:00',title:`${p.origin} → ${p.dest}`,desc:'到着時刻の希望を反映。実際の列車・便は予約時に確認してください。',status:'未確認'});items.push({time:addMinutes(p.out?`${p.out}:00`:'11:00',30),title:'ホテルへ荷物を預ける',desc:'到着直後に身軽に動けるよう設定。',status:'目安'});}
+let offset=d===1?(p.slow?1:0):0;let picks=base.slice(0,Math.min(base.length,3+(d%2))).map(x=>({...x}));if(d===p.dur&&p.ret){picks=picks.slice(0,2)}picks.forEach((x,i)=>{let t=x[1];if(offset)t=addMinutes(t,60);items.push({time:t,title:x[0],desc:x[3],status:x[4]})});if(d===p.dur){items.push({time:p.ret?addMinutes(`${p.ret}:00`,-90):'15:00',title:`${p.dest} → ${p.origin}`,desc:'最終日の出発希望から逆算した移動枠。実際の便・列車は予約時に確認してください。',status:'未確認'})}days.push({day:d,items})}return days}
+function render(p,days){let result=$('result');result.innerHTML=`<div class="summary"><h2>${p.month?p.month+'月':''}${p.dest} ${p.dur-1}泊${p.dur}日</h2><div class="meta">${p.origin}発・${p.dest}／${p.slow?'朝はゆっくり・':''}${p.walk?'歩く量少なめ・':''}${p.transfer?'乗換少なめ':''}</div></div>${days.map((d,i)=>`<div class="day"><div class="day-head"><div class="day-title">DAY ${d.day}</div><div class="day-sub">${d.day===1?'到着日':d.day===p.dur?'帰宅日':'観光日'}</div></div><div class="timeline">${d.items.map(it=>`<div class="item"><div class="time">${it.time}</div><div class="event"><div class="event-title">${it.title}</div><div class="event-desc">${it.desc}</div><span class="tag ${it.status==='目安'?'estimated':it.status==='未確認'?'unavailable':'verified'}">${it.status}</span></div></div>`).join('')}</div>${i===0?'<div class="why">💡 この順番：到着・荷物預けを先に置き、朝ゆっくりの希望を反映しながら、同じエリアをまとめて移動量を抑えています。</div>':''}</div>`).join('')}<div class="notice">⚠️ このWeb版は旅程を自動作成するローカル版です。交通時刻・料金・営業状況は「未確認／目安」として扱い、予約前に公式情報をご確認ください。</div><div class="actions"><button id="save" class="secondary">♡ 保存</button><button id="map" class="secondary">🗺 地図で見る</button><button id="share" class="secondary">↗ 共有</button></div>`;result.style.display='block';$('save').onclick=()=>saveTrip(p,days);$('map').onclick=()=>window.open('https://www.google.com/maps/search/'+encodeURIComponent(p.dest+' 観光'),'_blank');$('share').onclick=()=>shareTrip(p,days);showTab('result')}
+function saveTrip(p,days){let arr=JSON.parse(localStorage.getItem(KEY)||'[]');arr.unshift({p,days,created:new Date().toISOString()});localStorage.setItem(KEY,JSON.stringify(arr.slice(0,20)));renderSaved();alert('旅を保存しました');}
+function renderSaved(){let arr=JSON.parse(localStorage.getItem(KEY)||'[]');$('savedList').innerHTML=arr.length?arr.map((x,i)=>`<div class="saved-item"><b>${x.p.dest} ${x.p.dur-1}泊${x.p.dur}日</b><div class="meta">${x.p.origin} → ${x.p.dest}</div><button class="secondary" onclick="loadSaved(${i})">開く</button></div>`).join(''):'<div class="empty">まだ保存した旅はありません。</div>'}
+window.loadSaved=i=>{let x=JSON.parse(localStorage.getItem(KEY)||'[]')[i];if(x){render(x.p,x.days)}};
+async function shareTrip(p,days){let text=`Tabiori AI\n${p.dest} ${p.dur-1}泊${p.dur}日\n`+days.map(d=>'DAY '+d.day+'\n'+d.items.map(x=>`${x.time} ${x.title}`).join('\n')).join('\n');if(navigator.share)await navigator.share({title:'Tabiori AI',text});else{await navigator.clipboard.writeText(text);alert('旅程をコピーしました')}}
+function showTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('create').classList.toggle('hidden',tab!=='create');$('result').classList.toggle('hidden',tab!=='result');$('saved').classList.toggle('hidden',tab!=='saved');if(tab==='saved')renderSaved()}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+$('make').onclick=()=>{let p=parse($('prompt').value);$('status').style.display='block';$('status').innerHTML='<span class="loading"><span class="dot"></span>旅の条件を整理して、順番を最適化しています…</span>';$('make').disabled=true;setTimeout(()=>{render(p,generate(p));$('status').style.display='none';$('make').disabled=false},700)};
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+renderSaved();
+</script>
+</body></html>
